@@ -1,6 +1,8 @@
 # `Memory Game in JavaScript`
 ##### This is a Simple Mind game to find all the matches  developed using JavaScript.
 -------------------------------------------------------------------------------
+**TO VIEW THE LIVE DEMO**: Click on [MemoryGameInJS](https://memorygameinjs.firebaseapp.com/)
+
 ### Getting Started
 ###### These instructions will get you a copy of the project up and running on your local machine.
 
