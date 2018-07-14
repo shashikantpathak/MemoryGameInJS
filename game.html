@@ -1,0 +1,177 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body style="background-image: url(http://images.clipartpanda.com/thinking-clipart-ani_thinkingcap0.gif);
+            background-repeat:  no-repeat;
+            background-size:  cover;">
+    <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autostart="false"></audio>
+    <div class="container">
+        <header style="
+            color: darkgoldenrod;
+            font-size: 16px;">
+            <h1>Memory Game</h1>
+        </header>
+
+        <section class="top" style="font-family: monospace;font-size:  26px;color: darkblue;">
+            <ul class="stars" style="color: rgb(202, 29, 29);">
+                <li><i class="fa fa-star" style="color: black; visibility: visible;"></i></li>
+                <li><i class="fa fa-star" style="color: black; visibility: collapse;"></i></li>
+                <li><i class="fa fa-star" style="color: black; visibility: collapse;"></i></li>
+            </ul>
+
+            <span class="moves" style="
+                   color: darkslategray;
+                   font-family:  fantasy;
+                     font-size: 25px;
+                                       ">33</span> <b>Move's</b>
+
+            <div class="timer" style="
+                  color: mediumseagreen;
+                   ">0:1:21s</div>
+
+            <div class="restart" onclick="startGame()" style="
+                    color: purple;
+                    ">
+                <i class="fa fa-repeat"></i>
+            </div>
+        </section>
+
+        <ul class="patterns" id="image-patterns" style="
+        
+            background:  cadetblue;
+            box-shadow: 0px 0px 10px 0px lightseagreen;
+        ">
+            <li class="image match disabled" onclick="PlaySound()" type="plane">
+                <i class="fa fa-paper-plane-o"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="bolt">
+                <i class="fa fa-bolt"></i>
+            </li>
+            <li class="image disabled match" onclick="PlaySound()" type="cube">
+                <i class="fa fa-cube"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="leaf">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="anchor">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="image disabled match" onclick="PlaySound()" type="cube">
+                <i class="fa fa-cube"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="bicycle">
+                <i class="fa fa-bicycle"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="bicycle">
+                <i class="fa fa-bicycle"></i>
+            </li>
+            <li class="image disabled match" onclick="PlaySound()" type="bomb">
+                <i class="fa fa-bomb"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="anchor">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+            <li class="image disabled match" onclick="PlaySound()" type="bomb">
+                <i class="fa fa-bomb"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="bolt" style="
+            /* background:  navy; */
+        ">
+                <i class="fa fa-bolt"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="leaf">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+            <li class="image match disabled" onclick="PlaySound()" type="plane">
+                <i class="fa fa-paper-plane-o"></i>
+            </li>
+        </ul>
+
+        <div id="model_view" class="view" style="
+    color: aliceblue;
+    justify-content:  center;
+    display:  flex;
+    flex-wrap:  wrap;
+">
+            <div class="pop-up" style="
+    background-color: aqua;
+    display:  flex;
+    flex-wrap:  wrap;
+    flex-direction:  column;
+    justify-content:  center;
+    align-items:  center;
+">
+                <h2 style="
+    color: blueviolet;
+    background-color:  lawngreen;
+    padding: 5px 90px 10px 90px;
+">Congratulations 🎉</h2>
+                <a class="end" href="#">×</a>
+                <div class="congratulation_message" style="
+    color:  brown;
+    font-family:  a;
+">You're a winner 🎉🎉</div>
+                <div class="played_outsteps" style="
+    color: navy;
+    font-family:  -webkit-pictograph;
+    /* background-color: darkseagreen; */
+    padding: 10px 20px 10p 10;
+">
+                    <p>You made <span id="totalMove" style="font-style: oblique;font-stretch:  ultra-expanded;font-size: 30;color: royalblue;"></span> moves </p>
+                    <p>in <span id="totalTime" style="
+    color: rebeccapurple;
+    font-size: 25px;
+    padding: 10px;
+"></span> </p>
+                    <p>Rating: <span id="starRating" style="
+    color: yellow;
+">
+               
+            </span></p>
+
+
+                </div>
+                <button id="play-again" onclick="playAgain()" style="
+    color: bisque;
+    background: darkgreen;
+    padding-top:  10px;
+">
+                            Play again 😄
+                        </button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="game.js"></script>
+
+
+
+
+</body>
+
+</html>

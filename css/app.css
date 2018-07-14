@@ -1,0 +1,235 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Palatino', cursive;
+}
+
+.patterns {
+    width: 85%;
+    background: rgb(136, 106, 9);
+    padding: 1rem;
+    border-radius: 40px;
+    box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.patterns .image {
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0.2rem 0.2rem;
+    background: white;
+    font-size: 0;
+    color: #991d38;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.patterns .image.open {
+    transform: rotateY(0);
+    background: #7d9b0f;
+    cursor: default;
+    animation-name: flipInY;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.patterns .image.show {
+    font-size: 33px;
+}
+
+.patterns .image.match {
+    cursor: default;
+    background: rgb(23, 160, 64);
+    font-size: 33px;
+    animation-name: rubberBand;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.patterns .image.unmatched {
+    animation-name: pulse;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+    background: #20084d;
+}
+
+.patterns .image.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.top {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.top .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.top .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.top .restart {
+    float: right;
+    cursor: pointer;
+}
+
+.fa-star {
+    color: #FFD700;
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.view {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.view:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.pop-up {
+    margin: 70px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 85%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.pop-up h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.pop-up .end {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.pop-up .end:hover {
+    color: #E5F720;
+}
+
+.pop-up .congratulation_message,
+.played_outsteps {
+    max-height: 30%;
+    overflow: auto;
+    text-align: center;
+   
+}
+
+.show {
+    visibility: visible !important;
+    opacity: 100 !important;
+}
+
+#starRating li {
+    display: inline-block;
+}
+
+#play-again {
+    background-color: #141214;
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, cursive;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+@media (max-width: 320px) {
+    .patterns {
+        width: 85%;
+    }
+    .patterns .image {
+        height: 4.7rem;
+        width: 4.7rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        font-size: 22px;
+    }
+    .patterns {
+        width: 660px;
+        height: 680px;
+    }
+    .patterns .image {
+        height: 125px;
+        width: 125px;
+    }
+    .pop-up {
+        width: 60%;
+    }
+}
