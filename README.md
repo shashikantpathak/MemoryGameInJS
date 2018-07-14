@@ -7,9 +7,11 @@
   ### Prerequisites
  **Basic Knowledge of JavaScript**
  ## `Run the Project`
-                     Click on `game.html` and enjoy the game .
-
-`
+ ```s
+  $ git clone https://github.com/shashikantpathak/MemoryGameInJS.git
+  $ cd MemoryGameInJS
+  $ Click on game.html
+ ```
 
 
 
